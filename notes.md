@@ -28,3 +28,8 @@
 	- Otherwise, reversing the string would put the newline at the front, leaving a blank line before the string, and with no newline after.
 - Both the newline and the null character are added at the end of the string after the reversing of other characters is done.
 	- Note that a newline is only added if one was present in the original string in the first place.
+
+### Exercise 1-20
+- Once a tab (`\t`) has been identified in the **original string** (`srcIdx`), the **position in the destination string** (`destIdx`) is used to figure out the **position of the next tabstop** (`nextTabstop`). Then that result is used to calculate the **required number of spaces** (`requiredSpaces`) to reach that tabstop position.
+	- `nextTabstop = ((destIdx + tabstop) / tabstop) * tabstop;`
+	- `requiredSpaces = nextTabstop - destIdx;`
