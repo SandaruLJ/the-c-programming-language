@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define TABSTOP 8      // fixed set of tab stops every 4 columns
+#define TABSTOP 8       // fixed set of tab stops every 'n' columns
 #define MAXLEN 1000     // maximum input string length
 
 int getStringLine(char str[], int maxLen);
@@ -20,7 +20,7 @@ int main()
     return 0;
 }
 
-// get user input to character array and return it's length
+// get user input to character array and return its length
 int getStringLine(char str[], int maxLen)
 {
     int index, charInput;
