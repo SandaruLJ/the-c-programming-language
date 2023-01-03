@@ -33,3 +33,12 @@
 - Once a tab (`\t`) has been identified in the **original string** (`srcIdx`), the **position in the destination string** (`destIdx`) is used to figure out the **position of the next tabstop** (`nextTabstop`). Then that result is used to calculate the **required number of spaces** (`requiredSpaces`) to reach that tabstop position.
 	- `nextTabstop = ((destIdx + tabstop) / tabstop) * tabstop;`
 	- `requiredSpaces = nextTabstop - destIdx;`
+
+### Exercise 1-21
+- Any character that is not a space is copied as it is to the `destStr`.
+- If a space is encountered, the programme checks whether the next character is also a space (if not, it's a lone space). If the space is a lone space, Then the programme checks whether the next character is at a tabstop.
+	- This programme replaces lone spaces if the character next to them happens to align with a tabstop (could accidentally replace intended single spaces).
+- Anything that doesn't match the above scenarios (meaning the character is a space, and the character next to it is also a space) goes into the `else` clause.
+	- The number of consecutive spaces is counted until a non-space character is found.
+	- Then, the required number of tabs to fill those spaces is counted.
+	- After putting the tabs into the `destStr`, the `srcIdx` is incremented to skip all the spaces that were replaced. (here, `1` is deducted to compensate for the `++srcIdx` increment in the surrounding `for` loop).
